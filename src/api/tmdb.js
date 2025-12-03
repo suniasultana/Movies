@@ -61,15 +61,15 @@ export function getMovieVideos(id) {
   return fetchFromTMDB(`/movie/${id}/videos`);
 }
 
-// 🎬 GET MOVIE TRAILERS
+
 export async function getMovieTrailer(id) {
   const data = await fetchFromTMDB(`/movie/${id}/videos`);
 
-  // Find first YouTube Trailer
+  
   const trailer = data.results.find(
     (video) => video.site === "YouTube" && video.type === "Trailer"
   );
 
-  // If Trailer not found, fallback to Teaser
+  
   return trailer || data.results.find(video => video.site === "YouTube");
 }

@@ -1,3 +1,99 @@
+movie-explorer/
+│
+├── public/
+│ ├── index.html
+│ ├── fallback.jpg # Fallback image for missing posters
+│ └── favicon.ico
+│
+├── src/
+│ ├── api/
+│ │ └── tmdb.js # TMDB API functions
+│ │
+│ ├── components/
+│ │ ├── Header.js # Navigation + Search bar
+│ │ └── MovieCard.js # Reusable movie card component
+│ │
+│ ├── pages/
+│ │ ├── Homepage.js
+│ │ ├── MoviePage.js
+│ │ ├── SearchPage.js
+│ │ ├── NotFoundPage.js
+│ │ │
+│ │ └── movie/ # Movie details tabs
+│ │ ├── CastTab.js
+│ │ ├── OverviewTab.js
+│ │ ├── ReviewsTab.js
+│ │ └── MovieDetails.js
+│ │
+│ ├── styles.css # Main global CSS
+│ ├── App.js
+│ ├── App.css
+│ ├── index.js
+│ └── index.css
+│
+├── .env # API key (ignored in Git)
+├── package.json
+└── README.md
+
+
+Project Features
+ 1. Trending Movies
+
+Fetch trending movies from TMDB
+
+Display posters in a responsive grid
+
+Smooth dark theme UI
+
+2. Search Movies
+
+Search instantly by text
+
+Fully integrated with TMDB’s search API
+
+ 3. Movie Details Page
+
+Overview
+
+Cast tab
+
+Reviews tab
+
+High-quality poster
+
+Clean Netflix-style layout
+
+ 4. Fallback Image Support
+
+If poster is missing or fails to load
+
+Uses public/fallback.jpg automatically
+
+5. Routing
+
+Built with React Router
+
+Separate pages for Home, Search, Movie, Not Found
+
+6. Fully Responsive
+
+Works on mobile, tablet, and desktop
+
+ Environment Variables 
+
+Create a .env file in the root of the project:
+
+REACT_APP_TMDB_API_KEY=your_dummy_api_key_here
+REACT_APP_TMDB_BASE_URL=https://api.themoviedb.org/3
+REACT_APP_TMDB_IMAGE_URL=https://image.tmdb.org/t/p/w500
+
+
+ React requires variables to start with REACT_APP_
+
+Example config.js (optional)
+export const API_KEY = process.env.REACT_APP_TMDB_API_KEY;
+export const BASE_URL = process.env.REACT_APP_TMDB_BASE_URL;
+export const IMAGE_URL = process.env.
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
