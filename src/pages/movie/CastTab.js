@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { useParams, useOutletContext } from "react-router-dom";
+import { useParams} from "react-router-dom";
 import { getMovieCredits } from "../../api/tmdb";
 
 function CastTab() {
-  const { movie } = useOutletContext();
+  
   const { id } = useParams();
   const [cast, setCast] = useState([]);
   const [loading, setLoading] = useState(true);

@@ -96,7 +96,7 @@ function MoviePage() {
           {/* Tabs navigation (nested routes) */}
           <nav className="tabs">
             <NavLink
-              to=""
+              to="Overview"
               end
               className={({ isActive }) => (isActive ? "tab active" : "tab")}
             >
