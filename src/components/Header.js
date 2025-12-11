@@ -27,14 +27,23 @@ function Header() {
           🎬 Movie Explorer
         </Link>
 
-        <form className="search-form" onSubmit={handleSubmit}>
+        <form
+         className="search-form"
+         onSubmit={handleSubmit}
+         aria-label="Movie search form"
+         role="search"
+
+        >
           <input
-            type="text"
-            placeholder="Search movies..."
-            value={searchText}
-            onChange={(e) => setSearchText(e.target.value)}
-          />
-          <button type="submit">Search</button>
+          type="text"
+          placeholder="Search movies..."
+          aria-label="Search movie input"
+          value={searchText}
+          onChange={(e) => setSearchText(e.target.value)}
+         />
+          <button type="submit" aria-label="Search button">
+            Search
+          </button>
         </form>
       </div>
     </header>
