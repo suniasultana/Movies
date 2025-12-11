@@ -1,5 +1,5 @@
 // src/pages/movie/MovieDetails.js
-
+import "./MovieDetails.css";
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { getMovieVideos } from "../../api/tmdb"; // <-- note the ../../
@@ -36,25 +36,23 @@ function MovieDetails() {
   }, [id]);
 
   return (
-    <div style={{ padding: "1rem" }}>
-      <h1>Movie Trailer</h1>
+  <div className="movie-container">
+    <h1>Movie Trailer</h1>
 
-      {error && <p style={{ color: "red" }}>{error}</p>}
+    {error && <p className="error-text">{error}</p>}
 
-      {trailer ? (
-        <iframe
-          width="560"
-          height="315"
-          src={`https://www.youtube.com/embed/${trailer.key}`}
-          title={trailer.name || "Movie Trailer"}
-          frameBorder="0"
-          allowFullScreen
-        />
-      ) : !error ? (
-        <p>No trailer available for this movie.</p>
-      ) : null}
-    </div>
-  );
+    {trailer ? (
+      <iframe
+        className="trailer-iframe"
+        src={`https://www.youtube.com/embed/${trailer.key}`}
+        title={trailer.name || "Movie Trailer"}
+        allowFullScreen
+      />
+    ) : error ? (
+      <p>No trailer available for this movie.</p>
+    ) : null}
+  </div>
+);
 }
 
 export default MovieDetails;
