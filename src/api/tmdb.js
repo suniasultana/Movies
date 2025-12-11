@@ -8,15 +8,17 @@ const CORS_PROXY = process.env.REACT_APP_CORS_PROXY;
 async function fetchFromTMDB(endpoint, params = "") {
   const tmdbUrl = `${TMDB_BASE_URL}${endpoint}?api_key=${API_KEY}${params}`;
   const proxiedUrl = `${CORS_PROXY}${encodeURIComponent(tmdbUrl)}`;
- 
-  console.log("Requesting:", proxiedUrl);
- 
+
+  if (process.env.NODE_ENV === "development") {
+    console.log("Requesting:", proxiedUrl);
+  }
+
   try {
     const res = await axios.get(proxiedUrl);
     return res.data;
-  } catch (error) {
-    console.error("TMDB raw error:", error.response?.status, error.response?.data);
-    throw new Error("Failed to fetch");
+  } catch (err) {
+    console.error("TMDB Error:", err.message);
+    throw err;
   }
 }
  
@@ -54,7 +56,7 @@ export function getSimilarMovies(id) {
  
 export function getPosterUrl(path, size = "w500") {
   if (!path) return null;
-  return `https://image.tmdb.org/t/p/w500/${path}`;
+  return `${TMDB_IMAGE_URL}${size}${path}`;
 }
  
 export function getMovieVideos(id) {
